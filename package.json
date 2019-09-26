@@ -24,9 +24,9 @@
     "start:dev": "concurrently \"nodemon app.js --env=\"development\" --service=\"all\" \" \"react-scripts start\"",
     "start:api": "nodemon app.js --env=\"development\" --service=\"all\" ",
     "start:react": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build:react": "react-scripts build",
+    "test:react": "react-scripts test",
+    "eject:react": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
