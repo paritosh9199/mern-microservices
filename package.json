@@ -6,6 +6,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "connect-mongo": "^3.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
@@ -19,9 +20,9 @@
     "validator": "^11.1.0"
   },
   "scripts": {
-    "start": "node app.js --env='production'",
-    "start:dev": "concurrently \"nodemon app.js --env='development'\" \"react-scripts start\"",
-    "start:api": "nodemon app.js",
+    "start": "node app.js --env=\"production\" --service=\"all\"",
+    "start:dev": "concurrently \"nodemon app.js --env=\"development\" --service=\"all\" \" \"react-scripts start\"",
+    "start:api": "nodemon app.js --env=\"development\" --service=\"all\" ",
     "start:react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

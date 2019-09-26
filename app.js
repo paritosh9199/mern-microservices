@@ -9,11 +9,11 @@ const env = initEnv(argv.env)
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-
 /*  Database handlers */
 let { mongoose } = require('./database/mongoose');
 
 let session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 let path = require('path');
 
 /* body parser */
@@ -27,7 +27,8 @@ app.use(session({
     secret: makeid(12),
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false }
+    cookie: { secure: false },
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 
 
@@ -54,5 +55,5 @@ app.get('*', (req, res) => {
 
 app.listen(app.get('port'), process.env.IP, function () {
     console.log(`Server started at ${app.get('port')}`);
-    console.log(`env: ${env}`);
+    console.log(`env: ${process.env.NODE_ENV}`);
 });

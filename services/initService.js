@@ -14,7 +14,7 @@ addService("userAuthService", "./micros/userAuthService");
 module.exports = {
     Service,
     serviceInit: (app, service = 1) => {
-        console.log({ "service from init": service });
+        // console.log({ "service from init": service });
         (service.length)?((service[0]=='all')?(service = 1):null):null;
         if (service == Service.All() || service.length == 0 || service.length == undefined) {
             for (var s in Service) {
