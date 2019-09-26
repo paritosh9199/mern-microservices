@@ -1,5 +1,5 @@
-var express = require('express');
-var path = require('path');
+let express = require('express');
+let path = require('path');
 let cors = require('cors');
 
 module.exports = (app, env, _dir = __dirname) => {

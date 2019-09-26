@@ -1,17 +1,17 @@
 {
   "test": {
     "PORT": 5000,
-    "MONGODB_URI": "mongodb://localhost:27017/NTest",
+    "MONGODB_URI": "mongodb://localhost:27017/mernMicroservicesTest",
     "JWT_SECRET": "test_secret"
   },
   "development": {
     "PORT": 5000,
     "ELECTRON_DISABLE_SECURITY_WARNINGS":true,
-    "MONGODB_URI": "mongodb://localhost:27017/NDevelopment",
+    "MONGODB_URI": "mongodb://localhost:27017/mernMicroservices",
     "JWT_SECRET": "development_secret"
   },
   "production": {
-    "MONGODB_URI": "mongodb://localhost:27017/NProduction",
+    "MONGODB_URI": "mongodb://localhost:27017/mernMicroservices",
     "JWT_SECRET": "production_secret"
   }
 }

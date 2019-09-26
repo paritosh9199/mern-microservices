@@ -15,7 +15,6 @@ let auth = (req, res, next) => {
         if (!user) {
             return Promise.reject();
         }
-
         req.user = user.toJSON();
         req.token = token;
         next();

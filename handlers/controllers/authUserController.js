@@ -15,7 +15,7 @@ let registerController = (req, res) => {
                         req.session.name = user.email;
                         // console.log({user});
                         res.setHeader('x-auth', token);
-                        res.send({success: true, token})
+                        res.send({success: true, user: user.toJSON(),token})
                         // res.redirect('/me');
                         // res.header('x-auth', token).redirect(200, '/me', user);
                     }).catch((e) => {
@@ -44,6 +44,7 @@ let loginController = (req, res) => {
             req.session.uid = user._id;
             req.session.name = user.email;
             res.setHeader('x-auth', token);
+            res.send({success: true, user: user.toJSON(),token})
             // res.header('x-auth', token).redirect('/me');
         });
     }).catch((e) => {

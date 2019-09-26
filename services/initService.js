@@ -14,6 +14,8 @@ addService("userAuthService", "./micros/userAuthService");
 module.exports = {
     Service,
     serviceInit: (app, service = 1) => {
+        console.log({ "service from init": service });
+        (service.length)?((service[0]=='all')?(service = 1):null):null;
         if (service == Service.All() || service.length == 0 || service.length == undefined) {
             for (var s in Service) {
                 if (Service.hasOwnProperty(s)) {
@@ -26,14 +28,15 @@ module.exports = {
                 }
             }
         } else {
-            if (service.length > 0) {
-                for (let s in service) {
-                    if (Service.hasOwnProperty(s)) {
-                        console.log(`Initialising Service \`${s}\``);
-                        Service[s](app);
-                    } else {
-                        console.log(`Initialization of service \`${s}\` failed!`);
-                    }
+            for (let i = 0; i < service.length; i++) {
+                let s = service[i].trim();
+
+                if (Service.hasOwnProperty(s) && s in Service) {
+                    console.log({ s: s, b: s in Service });
+                    Service[s](app);
+                    console.log(`Initialising Service \`${s}\``);
+                } else {
+                    console.log(`Initialisation of service \`${s}\` failed!`);
                 }
             }
         }
