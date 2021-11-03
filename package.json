@@ -17,7 +17,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.2",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   },
   "scripts": {
     "start": "node app.js --env=\"production\" --service=\"all\"",
